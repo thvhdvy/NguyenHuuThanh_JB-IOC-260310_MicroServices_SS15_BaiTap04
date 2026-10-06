@@ -1,0 +1,19 @@
+server:
+  port: 8888
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      server:
+        webflux:
+          routes:
+            - id: course-service
+              uri: http://localhost:8082
+              predicates:
+                - Path=/api/courses/**
+
+app:
+  jwt:
+    secret: 8Qv7mK2xP9rL4tY6nW3cH5sJ0dF1gZ8aV6uN2pX4qRk=
